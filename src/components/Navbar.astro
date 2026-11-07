@@ -1,0 +1,149 @@
+---
+import BrandLogo from './BrandLogo.astro';
+import { Download, Menu, X, ArrowRight } from 'lucide-astro';
+
+const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe";
+---
+
+<header class="sticky top-0 z-40 w-full glass-card border-b border-white/5 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18">
+      <!-- Logo de Marca -->
+      <a
+        href="#"
+        class="focus-visible:ring-2 focus-visible:ring-cobalt rounded-xl p-1 transition-opacity hover:opacity-90"
+        aria-label="BISync POS - Inicio"
+      >
+        <BrandLogo className="h-9" />
+      </a>
+
+      <!-- Enlaces de navegación de escritorio -->
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegación principal">
+        <a
+          href="#caracteristicas"
+          class="text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-cobalt rounded-md px-2 py-1"
+        >
+          Características
+        </a>
+        <a
+          href="#capacidades"
+          class="text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-cobalt rounded-md px-2 py-1"
+        >
+          Capacidades
+        </a>
+        <a
+          href="#planes"
+          class="text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-cobalt rounded-md px-2 py-1"
+        >
+          Planes
+        </a>
+        <a
+          href="#faq"
+          class="text-sm font-medium text-gray-300 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-cobalt rounded-md px-2 py-1"
+        >
+          Preguntas
+        </a>
+      </nav>
+
+      <!-- Botones de Acción (Desktop) -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a
+          href="#demo"
+          class="text-sm font-medium text-gray-300 hover:text-white px-3 py-2 transition-colors rounded-xl focus-visible:ring-2 focus-visible:ring-cobalt"
+        >
+          Ver Demo
+        </a>
+        <a
+          href={downloadUrl}
+          class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-sm text-white bg-emerald hover:bg-emerald-hover active:scale-[0.98] transition-all duration-200 shadow-glow-emerald focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-2 focus-visible:ring-offset-darkbase"
+          aria-label="Descargar BISync POS para Windows"
+        >
+          <Download class="w-4 h-4" />
+          <span>Descargar POS</span>
+        </a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <div class="flex sm:hidden">
+        <button
+          type="button"
+          id="mobile-menu-btn"
+          class="p-2.5 rounded-xl text-gray-300 hover:text-white hover:bg-white/5 focus-visible:ring-2 focus-visible:ring-cobalt transition-colors"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menú de navegación"
+        >
+          <Menu class="w-6 h-6" id="menu-icon-open" />
+          <X class="w-6 h-6 hidden" id="menu-icon-close" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú Desplegable Móvil -->
+  <div
+    id="mobile-menu"
+    class="hidden sm:hidden border-t border-white/5 bg-darkbase-surface/95 backdrop-blur-xl px-4 pt-3 pb-6 transition-all"
+  >
+    <div class="flex flex-col space-y-3 pt-2 pb-4">
+      <a
+        href="#caracteristicas"
+        class="mobile-nav-link text-base font-medium text-gray-200 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+      >
+        Características
+      </a>
+      <a
+        href="#capacidades"
+        class="mobile-nav-link text-base font-medium text-gray-200 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+      >
+        Capacidades
+      </a>
+      <a
+        href="#planes"
+        class="mobile-nav-link text-base font-medium text-gray-200 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+      >
+        Planes
+      </a>
+      <a
+        href="#faq"
+        class="mobile-nav-link text-base font-medium text-gray-200 hover:text-white px-3 py-2 rounded-lg hover:bg-white/5 transition-colors"
+      >
+        Preguntas frecuentes
+      </a>
+    </div>
+    <div class="pt-2 border-t border-white/5 flex flex-col gap-2.5">
+      <a
+        href={downloadUrl}
+        class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl font-semibold text-sm text-white bg-emerald hover:bg-emerald-hover transition-colors shadow-glow-emerald"
+      >
+        <Download class="w-4 h-4" />
+        <span>Descargar para Windows</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function toggleMenu() {
+    const isExpanded = menuBtn?.getAttribute('aria-expanded') === 'true';
+    menuBtn?.setAttribute('aria-expanded', (!isExpanded).toString());
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+  }
+
+  menuBtn?.addEventListener('click', toggleMenu);
+  mobileLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      if (menuBtn?.getAttribute('aria-expanded') === 'true') {
+        toggleMenu();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,59 @@
+---
+import { ChevronDown } from 'lucide-astro';
+
+const faqs = [
+  {
+    q: "¿Qué sucede si se corta el internet en mi local o comercio?",
+    a: "BISync POS está diseñado bajo la filosofía Offline-First. Puedes seguir cobrando, emitiendo tickets en tu impresora térmica y gestionando inventario normalmente. Cuando la conexión se reanuda, el sistema sincroniza automáticamente los datos de forma transparente."
+  },
+  {
+    q: "¿Qué impresoras térmicas y periféricos de punto de venta son compatibles?",
+    a: "Es compatible de forma nativa con prácticamente cualquier impresora de tickets ESC/POS (de 58mm y 80mm) con conexión USB, de red Ethernet o Bluetooth. También se conecta automáticamente con lectores de códigos de barra estándar (1D y 2D), cajones monederos automáticos y balanzas comerciales."
+  },
+  {
+    q: "¿Dónde se guardan mis datos y ventas? ¿Quién tiene acceso a mi facturación?",
+    a: "Tus datos pertenecen 100% a tu empresa. La base de datos operativa reside localmente en tu computadora para máxima velocidad y privacidad. Los respaldos en la nube son encriptados de extremo a extremo y solo tu usuario posee las llaves de acceso."
+  },
+  {
+    q: "¿Puedo importar mi catálogo de productos existente desde Excel o CSV?",
+    a: "Sí. BISync POS incluye un asistente de importación que te permite cargar miles de productos con código de barras, descripción, precio de costo, precio de venta, categoría y stock inicial en pocos clics."
+  },
+  {
+    q: "¿Cómo se realizan las actualizaciones del software?",
+    a: "El sistema notifica automáticamente cuando existe una nueva versión estable disponible en GitHub Releases. Puedes actualizar con un solo clic sin perder tu base de datos ni tu configuración previa."
+  }
+];
+---
+
+<section id="faq" class="py-20 sm:py-28 relative">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt/10 border border-cobalt/20 text-xs font-semibold text-cobalt-light mb-4">
+        <span>Resolvemos tus dudas</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Preguntas Frecuentes
+      </h2>
+      <p class="text-base sm:text-lg text-gray-400 mt-4 leading-relaxed text-balance">
+        Todo lo que necesitas saber antes de implementar BISync POS en tus cajas.
+      </p>
+    </div>
+
+    <!-- Lista de Preguntas con elementos semánticos nativos (Zero JS) -->
+    <div class="space-y-4">
+      {faqs.map((faq, index) => (
+        <details class="group rounded-2xl glass-card border border-white/10 p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-200 open:border-cobalt/30">
+          <summary class="flex cursor-pointer items-center justify-between gap-4 text-left font-semibold text-white text-base sm:text-lg focus-visible:ring-2 focus-visible:ring-cobalt rounded-lg select-none">
+            <span>{faq.q}</span>
+            <span class="flex-shrink-0 text-cobalt-light transition-transform duration-200 group-open:rotate-180">
+              <ChevronDown class="w-5 h-5" />
+            </span>
+          </summary>
+          <p class="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed border-t border-white/5 pt-4">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

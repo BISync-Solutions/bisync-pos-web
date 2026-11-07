@@ -1,0 +1,143 @@
+---
+import { 
+  WifiOff, 
+  Zap, 
+  Boxes, 
+  Receipt, 
+  Printer, 
+  ShieldCheck, 
+  RefreshCw,
+  BarChart3,
+  Layers
+} from 'lucide-astro';
+---
+
+<section id="caracteristicas" class="py-20 sm:py-28 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Encabezado de Sección -->
+    <div class="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cobalt/10 border border-cobalt/20 text-xs font-semibold text-cobalt-light mb-4">
+        <span>Diseñado para el ritmo real del comercio</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Todo lo que necesitas para operar tu caja <span class="text-cobalt-light">sin fricción</span>
+      </h2>
+      <p class="text-base sm:text-lg text-gray-400 mt-4 leading-relaxed text-balance">
+        Construido con tecnología moderna para asegurar que cada transacción sea instantánea, segura y libre de cuelgues.
+      </p>
+    </div>
+
+    <!-- Bento Grid de Características (Apple HIG layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Tarjeta 1: Offline-First (Destacada) -->
+      <div class="glass-card glass-card-hover rounded-3xl p-8 relative overflow-hidden flex flex-col justify-between border-white/10 lg:col-span-2">
+        <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald mb-6">
+            <WifiOff class="w-6 h-6" />
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald">Continuidad Garantizada</span>
+          <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1 mb-4">
+            Modo Offline-First: Vende sin internet siempre
+          </h3>
+          <p class="text-gray-300 leading-relaxed text-balance text-sm sm:text-base">
+            Las fallas de conexión o del proveedor de fibra no deben paralizar tus ventas. BISync POS guarda todas las transacciones localmente a máxima velocidad y realiza una sincronización silenciosa y bidireccional en cuanto se restablece la red.
+          </p>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-4 text-xs font-medium text-gray-400">
+          <div class="flex items-center gap-1.5">
+            <RefreshCw class="w-4 h-4 text-emerald" />
+            <span>Sincronización automática</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald"></span>
+            <span>Cero pérdida de tickets</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald"></span>
+            <span>Base de datos local embebida</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Facturación Ultrarrápida -->
+      <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-white/10">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-cobalt/10 border border-cobalt/20 flex items-center justify-center text-cobalt-light mb-6">
+            <Zap class="w-6 h-6" />
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cobalt-light">Agilidad en Caja</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+            Cobro en menos de 5 segundos
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Optimizado con atajos de teclado ergonómicos [F1 a F12] para despachar filas rápidamente sin necesidad de levantar las manos hacia el ratón.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 flex items-center gap-2 font-mono text-xs text-gray-400">
+          <span class="px-2 py-1 rounded bg-white/5 border border-white/10">F5 Efectivo</span>
+          <span class="px-2 py-1 rounded bg-white/5 border border-white/10">F6 Tarjeta</span>
+          <span class="px-2 py-1 rounded bg-white/5 border border-white/10">F12 Cobrar</span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3: Control de Inventario -->
+      <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-white/10">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-6">
+            <Boxes class="w-6 h-6" />
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-400">Inventario Inteligente</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+            Stock en tiempo real y alertas
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Deducción inmediata de inventario por ticket. Configura umbrales de stock mínimo para evitar desabastecimientos sorpresa.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-400">
+          <span>Variantes de producto • Código de barras múltiple</span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 4: Compatibilidad de Hardware Plug & Play -->
+      <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-white/10">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald mb-6">
+            <Printer class="w-6 h-6" />
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald">Periféricos Plug & Play</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+            Impresoras Térmicas ESC/POS
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Compatibilidad directa con impresoras de 58mm y 80mm (USB, Ethernet, Bluetooth), gavetas de dinero, balanzas y lectores de código 1D/2D.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-400">
+          <span>Apertura automática de gaveta al imprimir</span>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5: Cortes de Caja Z y X -->
+      <div class="glass-card glass-card-hover rounded-3xl p-8 flex flex-col justify-between border-white/10">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-cobalt/10 border border-cobalt/20 flex items-center justify-center text-cobalt-light mb-6">
+            <Receipt class="w-6 h-6" />
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-cobalt-light">Auditoría y Arqueo</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-white mt-1 mb-3">
+            Cierres Z y X con cuadre exacto
+          </h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Arqueos ciegos o asistidos. Desglose detallado por cada método de pago para evitar inconsistencias al final del turno.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-white/5 text-xs text-gray-400">
+          <span>Reporte imprimible y exportable en Excel/PDF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

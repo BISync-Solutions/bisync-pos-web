@@ -1,0 +1,94 @@
+---
+import BrandLogo from './BrandLogo.astro';
+import { Download, Github, Shield, Heart } from 'lucide-astro';
+
+const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe";
+const githubRepoUrl = "https://github.com/erick83/bisync-pos-web";
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-white/5 bg-darkbase-surface/80 relative text-gray-400 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+      <!-- Columna 1: Marca y Propósito -->
+      <div class="md:col-span-2 space-y-4">
+        <a href="#" class="inline-block focus-visible:ring-2 focus-visible:ring-cobalt rounded-xl p-1">
+          <BrandLogo className="h-9" />
+        </a>
+        <p class="text-xs sm:text-sm text-gray-400 max-w-md leading-relaxed">
+          Plataforma de Punto de Venta (POS) moderna, ágil y de alta disponibilidad para el comercio minorista e independiente. Creada para garantizar ventas continuas sin depender de conexión permanente a internet.
+        </p>
+        <div class="flex items-center gap-3 pt-2">
+          <a
+            href={githubRepoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-cobalt"
+            aria-label="Repositorio de GitHub de BISync POS Web"
+          >
+            <Github class="w-5 h-5" />
+          </a>
+          <span class="text-xs text-gray-500">Distribución abierta vía GitHub Releases</span>
+        </div>
+      </div>
+
+      <!-- Columna 2: Navegación Rápida -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-4">Navegación</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm">
+          <li>
+            <a href="#caracteristicas" class="hover:text-white transition-colors">Características</a>
+          </li>
+          <li>
+            <a href="#capacidades" class="hover:text-white transition-colors">Capacidades del Sistema</a>
+          </li>
+          <li>
+            <a href="#planes" class="hover:text-white transition-colors">Planes y Precios</a>
+          </li>
+          <li>
+            <a href="#faq" class="hover:text-white transition-colors">Preguntas Frecuentes</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Columna 3: Descarga y Soporte -->
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-white mb-4">Descargas</h3>
+        <ul class="space-y-2.5 text-xs sm:text-sm">
+          <li>
+            <a
+              href={downloadUrl}
+              class="inline-flex items-center gap-1.5 text-emerald hover:text-emerald-light font-medium transition-colors"
+            >
+              <Download class="w-4 h-4" />
+              <span>Instalador Windows (.exe)</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${githubRepoUrl}/releases`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              Historial de Versiones
+            </a>
+          </li>
+          <li>
+            <span class="text-gray-500 text-xs">Requisitos: Windows 10/11 (64-bit)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Barra Inferior de Copyright -->
+    <div class="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+      <p>© {currentYear} BISync POS. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-6">
+        <span>Privacidad y Seguridad Garantizada</span>
+        <span class="inline-block w-1 h-1 rounded-full bg-gray-600"></span>
+        <span>Alojado estáticamente en GitHub Pages</span>
+      </div>
+    </div>
+  </div>
+</footer>

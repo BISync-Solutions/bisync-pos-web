@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title = "BISync POS — Sistema de Punto de Venta Inteligente y Robusto",
+  description = "BISync POS es la solución de punto de venta moderna, rápida y confiable para comercios exigentes. Facturación ágil, sincronización continua y operación sin interrupciones.",
+  ogImage = "/og-image.png",
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const siteUrl = Astro.site ? new URL(ogImage, Astro.site).href : ogImage;
+---
+
+<!doctype html>
+<html lang="es" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}/favicon.svg`.replace('//', '/')} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primarias -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0D12" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={siteUrl} />
+    <meta property="og:site_name" content="BISync POS" />
+    <meta property="og:locale" content="es_LA" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={siteUrl} />
+
+    <!-- Preconnect fuentes del sistema / optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body class="bg-darkbase text-gray-100 selection:bg-cobalt/30 selection:text-white flex flex-col min-h-screen antialiased">
+    <!-- Skip to main content link for accessibility (Apple HIG & WCAG requirement) -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-cobalt text-white font-medium rounded-lg shadow-lg outline-none"
+    >
+      Saltar al contenido principal
+    </a>
+
+    <slot name="header" />
+
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+  </body>
+</html>

@@ -1,0 +1,93 @@
+---
+import { ShoppingCart, BarChart, Settings, Users, MonitorCheck, ArrowUpRight } from 'lucide-astro';
+---
+
+<section id="capacidades" class="py-20 sm:py-28 relative bg-darkbase-surface/50 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-semibold text-emerald mb-4">
+        <span>Flujo de Trabajo Intuitivo</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+        Diseñado con precisión para cada rol de tu comercio
+      </h2>
+      <p class="text-base sm:text-lg text-gray-400 mt-4 leading-relaxed text-balance">
+        Desde el cajero que necesita velocidad máxima hasta el administrador que analiza el rendimiento diario.
+      </p>
+    </div>
+
+    <!-- Pestañas y Vista Previa de Módulos (Apple HIG Inspired) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <!-- Columna Izquierda: Selector de Capacidades -->
+      <div class="lg:col-span-5 space-y-4">
+        <div class="p-6 rounded-2xl glass-card border-cobalt/40 bg-darkbase-card relative cursor-default">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-cobalt/20 text-cobalt flex items-center justify-center flex-shrink-0">
+              <ShoppingCart class="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">1. Punto de Venta Express</h3>
+              <p class="text-xs text-gray-400 mt-1">Búsqueda reactiva, retención de tickets en espera y cobro multimoneda o múltiple método.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl glass-card border-white/5 hover:border-white/10 transition-colors cursor-default">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald/20 text-emerald flex items-center justify-center flex-shrink-0">
+              <BarChart class="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">2. Control de Caja & Auditoría</h3>
+              <p class="text-xs text-gray-400 mt-1">Aperturas con fondo inicial, retiros autorizados y cierre ciego con reporte comparativo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl glass-card border-white/5 hover:border-white/10 transition-colors cursor-default">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
+              <Users class="w-5 h-5" />
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">3. Control de Permisos y Turnos</h3>
+              <p class="text-xs text-gray-400 mt-1">Restringe anulaciones, edición de precios o visualización de reportes según el rol asignado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Placeholder de Pantalla de Sistema -->
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl glass-card p-6 border-white/10 relative shadow-2xl">
+          <!-- Placeholder de imagen interactiva -->
+          <div class="rounded-2xl bg-darkbase border border-white/10 overflow-hidden flex flex-col">
+            <div class="px-4 py-3 bg-darkbase-card border-b border-white/5 flex items-center justify-between text-xs text-gray-400">
+              <div class="flex items-center gap-2">
+                <MonitorCheck class="w-4 h-4 text-emerald" />
+                <span class="font-medium text-white">Vista Previa: Pantalla Principal de Cobro</span>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded bg-emerald/10 text-emerald border border-emerald/20">Imagen Placeholder</span>
+            </div>
+
+            <!-- Área de la imagen placeholder -->
+            <div class="p-8 sm:p-12 flex flex-col items-center justify-center text-center bg-gradient-to-b from-darkbase-card/50 to-darkbase min-h-[320px]">
+              <div class="w-16 h-16 rounded-2xl bg-cobalt/10 border border-cobalt/20 flex items-center justify-center text-cobalt mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+              </div>
+              <h4 class="text-base font-bold text-white mb-2">[ Captura de Pantalla del POS ]</h4>
+              <p class="text-xs sm:text-sm text-gray-400 max-w-sm mb-6">
+                Aquí se integrará la captura de alta resolución del software BISync POS en ejecución sobre Windows 11.
+              </p>
+              <div class="inline-flex items-center gap-2 text-xs font-semibold text-cobalt-light px-3 py-1.5 rounded-lg bg-cobalt/10 border border-cobalt/20">
+                <span>Resolución nativa 1920 × 1080 / 1280 × 800</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

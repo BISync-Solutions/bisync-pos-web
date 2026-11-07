@@ -1,0 +1,64 @@
+---
+import { Download, ShieldCheck, Cpu, HardDrive, CheckCircle2 } from 'lucide-astro';
+
+const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe";
+---
+
+<section id="descarga" class="py-20 sm:py-28 relative overflow-hidden">
+  <!-- Glows de fondo -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-emerald/5 to-transparent pointer-events-none"></div>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-emerald/10 rounded-full blur-[140px] pointer-events-none"></div>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="rounded-3xl glass-card p-8 sm:p-14 border border-emerald/30 shadow-glow-emerald text-center relative overflow-hidden">
+      <!-- Badge superior -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-bold text-emerald mb-6">
+        <ShieldCheck class="w-4 h-4" />
+        <span>Binario Verificado Libre de Malware</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+        Descarga BISync POS hoy y transforma tu punto de venta
+      </h2>
+
+      <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed text-balance">
+        Instalador directo para Windows. Sin suscripciones requeridas para iniciar la prueba. Descarga el paquete oficial y empieza a facturar en menos de 3 minutos.
+      </p>
+
+      <!-- Botón de Descarga Principal Esmeralda -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <a
+          href={downloadUrl}
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-bold text-lg text-white bg-emerald hover:bg-emerald-hover active:scale-[0.98] transition-all duration-200 shadow-glow-emerald border border-emerald-light/30 focus-visible:ring-2 focus-visible:ring-emerald focus-visible:ring-offset-4 focus-visible:ring-offset-darkbase"
+          id="main-download-cta"
+        >
+          <!-- Windows SVG -->
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M0 3.449L9.75 2.1v9.451H0V3.449zm10.949-1.564L24 0v11.551H10.949V1.885zM0 12.6h9.75v9.451L0 20.699V12.6zm10.949 0H24V24l-13.051-1.836V12.6z"/>
+          </svg>
+          <div class="flex flex-col text-left leading-tight">
+            <span>Descargar Instalador Oficial</span>
+            <span class="text-xs font-normal text-white/80">Bisync_POS_setup.exe (Windows 64-bit)</span>
+          </div>
+          <Download class="w-6 h-6 ml-1" />
+        </a>
+      </div>
+
+      <!-- Especificaciones y Requerimientos de Hardware -->
+      <div class="pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-400">
+        <div class="flex items-center justify-center gap-2">
+          <Cpu class="w-4 h-4 text-gray-300" />
+          <span>Sistema: Windows 10 u 11 (64-bit)</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <HardDrive class="w-4 h-4 text-gray-300" />
+          <span>RAM mínima: 4 GB (8 GB recomendado)</span>
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <CheckCircle2 class="w-4 h-4 text-emerald" />
+          <span>Espacio libre: 500 MB en disco</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

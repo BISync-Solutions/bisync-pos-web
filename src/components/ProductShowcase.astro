@@ -1,88 +1,169 @@
 ---
-import { ShoppingCart, BarChart, Settings, Users, MonitorCheck, ArrowUpRight } from 'lucide-astro';
+import { ShoppingCart, Boxes, Sparkles, CheckCircle2, ArrowRight } from 'lucide-astro';
+import { Image } from 'astro:assets';
+import cajaScreen from '../assets/screens/caja.webp';
+import inventarioScreen from '../assets/screens/inventario.webp';
 ---
 
-<section id="capacidades" class="py-20 sm:py-28 relative bg-darkbase-surface/50 border-y border-white/5">
+<section id="capacidades" class="py-20 sm:py-28 relative bg-darkbase-surface/40 border-y border-white/5">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-16">
+    <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-semibold text-emerald mb-4">
-        <span>Flujo de Trabajo Intuitivo</span>
+        <span>Capturas Reales del Software</span>
       </div>
       <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-        Diseñado con precisión para cada rol de tu comercio
+        Conoce los dos módulos neurálgicos de tu negocio
       </h2>
       <p class="text-base sm:text-lg text-gray-400 mt-4 leading-relaxed text-balance">
-        Desde el cajero que necesita velocidad máxima hasta el administrador que analiza el rendimiento diario.
+        Explora la interfaz real de BISync POS para la facturación ágil en mostrador y la gestión técnica de inventario con deltas conmutativos.
       </p>
+
+      <!-- Selector de Pestañas Interactivas (Apple HIG Segmented Control) -->
+      <div class="inline-flex items-center p-1.5 rounded-2xl bg-darkbase-card border border-white/10 mt-8 shadow-inner" role="tablist" aria-label="Módulos del Sistema">
+        <button
+          type="button"
+          id="tab-btn-caja"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tab-content-caja"
+          class="tab-btn active px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-2 text-white bg-cobalt shadow-glow-cobalt"
+        >
+          <ShoppingCart class="w-4 h-4" />
+          <span>Módulo de Caja (Ventas)</span>
+        </button>
+        <button
+          type="button"
+          id="tab-btn-inventario"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tab-content-inventario"
+          class="tab-btn px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-gray-400 hover:text-white transition-all duration-200 flex items-center gap-2"
+        >
+          <Boxes class="w-4 h-4" />
+          <span>Inventario & Kardex</span>
+        </button>
+      </div>
     </div>
 
-    <!-- Pestañas y Vista Previa de Módulos (Apple HIG Inspired) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-      <!-- Columna Izquierda: Selector de Capacidades -->
-      <div class="lg:col-span-5 space-y-4">
-        <div class="p-6 rounded-2xl glass-card border-cobalt/40 bg-darkbase-card relative cursor-default">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-cobalt/20 text-cobalt flex items-center justify-center flex-shrink-0">
-              <ShoppingCart class="w-5 h-5" />
+    <!-- Contenido de Pestaña 1: Módulo de Caja -->
+    <div id="tab-content-caja" class="tab-panel transition-opacity duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Columna Visual de la Captura -->
+        <div class="lg:col-span-8">
+          <div class="rounded-3xl glass-card overflow-hidden shadow-2xl border border-white/10 ring-1 ring-white/5">
+            <div class="px-4 py-3 bg-darkbase-card/90 border-b border-white/5 flex items-center justify-between text-xs text-gray-300">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald"></span>
+                <span class="font-medium text-white">Terminal TERM-01 • Catálogo y Cobro Express</span>
+              </div>
+              <span class="text-gray-400 text-[11px] font-mono">Tasa oficial en vivo</span>
             </div>
-            <div>
-              <h3 class="text-lg font-bold text-white">1. Punto de Venta Express</h3>
-              <p class="text-xs text-gray-400 mt-1">Búsqueda reactiva, retención de tickets en espera y cobro multimoneda o múltiple método.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="p-6 rounded-2xl glass-card border-white/5 hover:border-white/10 transition-colors cursor-default">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-emerald/20 text-emerald flex items-center justify-center flex-shrink-0">
-              <BarChart class="w-5 h-5" />
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-white">2. Control de Caja & Auditoría</h3>
-              <p class="text-xs text-gray-400 mt-1">Aperturas con fondo inicial, retiros autorizados y cierre ciego con reporte comparativo.</p>
+            <div class="relative bg-darkbase">
+              <Image
+                src={cajaScreen}
+                alt="BISync POS — Pantalla Real de Caja y Catálogo de Productos"
+                class="w-full h-auto block"
+                quality={90}
+              />
             </div>
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl glass-card border-white/5 hover:border-white/10 transition-colors cursor-default">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center flex-shrink-0">
-              <Users class="w-5 h-5" />
+        <!-- Columna Descriptiva de Funciones -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-cobalt-light">Agilidad en Mostrador</span>
+            <h3 class="text-2xl font-bold text-white">Facturación Inmediata y Multi-Moneda</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Diseñado para responder al instante en negocios con alto flujo. El cajero visualiza precios en dólares y moneda local automáticamente convertidos según la tasa oficial configurada.
+            </p>
+          </div>
+
+          <div class="space-y-3.5 pt-2 border-t border-white/10 text-xs sm:text-sm text-gray-300">
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Búsqueda Reactiva & Escáner</strong>
+                <span class="text-gray-400 text-xs">Lectura de código de barras físico (HID), SKU o búsqueda por texto predictivo.</span>
+              </div>
             </div>
-            <div>
-              <h3 class="text-lg font-bold text-white">3. Control de Permisos y Turnos</h3>
-              <p class="text-xs text-gray-400 mt-1">Restringe anulaciones, edición de precios o visualización de reportes según el rol asignado.</p>
+
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Cola Local P2P sin Internet</strong>
+                <span class="text-gray-400 text-xs">Muestra el estado de ventas en cola local y sincroniza silenciosamente al reconectar.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Unidades Mixtas</strong>
+                <span class="text-gray-400 text-xs">Venta fraccionada por litros, kilogramos o paquetes empacados.</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Columna Derecha: Placeholder de Pantalla de Sistema -->
-      <div class="lg:col-span-7">
-        <div class="rounded-3xl glass-card p-6 border-white/10 relative shadow-2xl">
-          <!-- Placeholder de imagen interactiva -->
-          <div class="rounded-2xl bg-darkbase border border-white/10 overflow-hidden flex flex-col">
-            <div class="px-4 py-3 bg-darkbase-card border-b border-white/5 flex items-center justify-between text-xs text-gray-400">
+    <!-- Contenido de Pestaña 2: Control de Inventario & Kardex -->
+    <div id="tab-content-inventario" class="tab-panel hidden transition-opacity duration-300">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Columna Visual de la Captura -->
+        <div class="lg:col-span-8">
+          <div class="rounded-3xl glass-card overflow-hidden shadow-2xl border border-white/10 ring-1 ring-white/5">
+            <div class="px-4 py-3 bg-darkbase-card/90 border-b border-white/5 flex items-center justify-between text-xs text-gray-300">
               <div class="flex items-center gap-2">
-                <MonitorCheck class="w-4 h-4 text-emerald" />
-                <span class="font-medium text-white">Vista Previa: Pantalla Principal de Cobro</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span>
+                <span class="font-medium text-white">Control de Inventario y Kardex • Valorización de Stock</span>
               </div>
-              <span class="text-[11px] px-2 py-0.5 rounded bg-emerald/10 text-emerald border border-emerald/20">Imagen Placeholder</span>
+              <span class="text-gray-400 text-[11px] font-mono">Deltas conmutativos CRDT</span>
+            </div>
+            <div class="relative bg-darkbase">
+              <Image
+                src={inventarioScreen}
+                alt="BISync POS — Pantalla Real de Control de Inventario y Kardex"
+                class="w-full h-auto block"
+                quality={90}
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna Descriptiva de Funciones -->
+        <div class="lg:col-span-4 space-y-6">
+          <div class="space-y-3">
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald">Matemática Local-First</span>
+            <h3 class="text-2xl font-bold text-white">Stock Blindado con Deltas Conmutativos</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Adiós a los bloqueos de base de datos o sobre-escrituras accidentales. Las modificaciones de inventario se procesan como operaciones matemáticas conmutativas que convergen perfectamente entre terminales.
+            </p>
+          </div>
+
+          <div class="space-y-3.5 pt-2 border-t border-white/10 text-xs sm:text-sm text-gray-300">
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Valor Costo vs. Valor Venta</strong>
+                <span class="text-gray-400 text-xs">Métricas en vivo de tu capital invertido y proyección de ingresos brutos.</span>
+              </div>
             </div>
 
-            <!-- Área de la imagen placeholder -->
-            <div class="p-8 sm:p-12 flex flex-col items-center justify-center text-center bg-gradient-to-b from-darkbase-card/50 to-darkbase min-h-[320px]">
-              <div class="w-16 h-16 rounded-2xl bg-cobalt/10 border border-cobalt/20 flex items-center justify-center text-cobalt mb-4">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Alertas de Stock Bajo</strong>
+                <span class="text-gray-400 text-xs">Indicadores amarillos inmediatos para reposición oportuna de mercadería crítica.</span>
               </div>
-              <h4 class="text-base font-bold text-white mb-2">[ Captura de Pantalla del POS ]</h4>
-              <p class="text-xs sm:text-sm text-gray-400 max-w-sm mb-6">
-                Aquí se integrará la captura de alta resolución del software BISync POS en ejecución sobre Windows 11.
-              </p>
-              <div class="inline-flex items-center gap-2 text-xs font-semibold text-cobalt-light px-3 py-1.5 rounded-lg bg-cobalt/10 border border-cobalt/20">
-                <span>Resolución nativa 1920 × 1080 / 1280 × 800</span>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <CheckCircle2 class="w-5 h-5 text-emerald flex-shrink-0 mt-0.5" />
+              <div>
+                <strong class="text-white block font-semibold">Ajustes Rápidos de Stock</strong>
+                <span class="text-gray-400 text-xs">Botón directo de ajuste por mermas, entradas de proveedor o conteo físico.</span>
               </div>
             </div>
           </div>
@@ -91,3 +172,39 @@ import { ShoppingCart, BarChart, Settings, Users, MonitorCheck, ArrowUpRight } f
     </div>
   </div>
 </section>
+
+<script>
+  const btnCaja = document.getElementById('tab-btn-caja');
+  const btnInventario = document.getElementById('tab-btn-inventario');
+  const panelCaja = document.getElementById('tab-content-caja');
+  const panelInventario = document.getElementById('tab-content-inventario');
+
+  function showCaja() {
+    btnCaja?.classList.add('bg-cobalt', 'text-white', 'shadow-glow-cobalt');
+    btnCaja?.classList.remove('text-gray-400');
+    btnCaja?.setAttribute('aria-selected', 'true');
+
+    btnInventario?.classList.remove('bg-cobalt', 'text-white', 'shadow-glow-cobalt');
+    btnInventario?.classList.add('text-gray-400');
+    btnInventario?.setAttribute('aria-selected', 'false');
+
+    panelCaja?.classList.remove('hidden');
+    panelInventario?.classList.add('hidden');
+  }
+
+  function showInventario() {
+    btnInventario?.classList.add('bg-cobalt', 'text-white', 'shadow-glow-cobalt');
+    btnInventario?.classList.remove('text-gray-400');
+    btnInventario?.setAttribute('aria-selected', 'true');
+
+    btnCaja?.classList.remove('bg-cobalt', 'text-white', 'shadow-glow-cobalt');
+    btnCaja?.classList.add('text-gray-400');
+    btnCaja?.setAttribute('aria-selected', 'false');
+
+    panelInventario?.classList.remove('hidden');
+    panelCaja?.classList.add('hidden');
+  }
+
+  btnCaja?.addEventListener('click', showCaja);
+  btnInventario?.addEventListener('click', showInventario);
+</script>

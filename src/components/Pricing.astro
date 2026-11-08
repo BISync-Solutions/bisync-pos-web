@@ -1,7 +1,17 @@
 ---
-import { Check, Download, Sparkles } from 'lucide-astro';
+import { Check, Download, Sparkles, MessageCircle, Mail } from 'lucide-astro';
 
 const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe";
+
+// Configuración de Licencia y Precios
+const trialDays = 14;
+const monthlyPrice = 29;
+const annualTotal = monthlyPrice * 12; // $348 acumulado al año
+
+// Enlace de contacto para solicitar y activar licencias (WhatsApp o Email)
+// Reemplaza con tu número con código de país si deseas WhatsApp directo (ej: https://wa.me/54911XXXXXXXX)
+const contactWhatsAppUrl = "https://wa.me/?text=Hola%2C%20estoy%20interesado%20en%20adquirir%20la%20licencia%20anual%20de%20BISync%20POS%20(Plan%20Comercio%20Pro)";
+const contactEmailUrl = "mailto:ventas@bisync.com?subject=Solicitud%20de%20Licencia%20Anual%20-%20Plan%20Comercio%20Pro";
 ---
 
 <section id="planes" class="py-20 sm:py-28 relative">
@@ -29,7 +39,7 @@ const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/d
 
           <div class="flex items-baseline gap-1 mb-6">
             <span class="text-4xl font-extrabold text-white">$0</span>
-            <span class="text-xs text-gray-400 font-medium">/ 30 días de prueba</span>
+            <span class="text-xs text-gray-400 font-medium">/ {trialDays} días de prueba</span>
           </div>
 
           <ul class="space-y-3 text-xs sm:text-sm text-gray-300">
@@ -75,9 +85,20 @@ const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/d
           <h3 class="text-2xl font-bold text-white mt-1 mb-2">Comercio Pro</h3>
           <p class="text-xs text-gray-400 mb-6">Para tiendas, minimarkets y farmacias que no pueden detenerse ni un minuto.</p>
 
-          <div class="flex items-baseline gap-1 mb-6">
-            <span class="text-4xl font-extrabold text-white">$29</span>
+          <div class="flex items-baseline gap-1 mb-2">
+            <span class="text-4xl font-extrabold text-white">${monthlyPrice}</span>
             <span class="text-xs text-gray-400 font-medium">/ mes por caja</span>
+          </div>
+
+          <!-- Nota de Pago Anual y Monto Acumulado -->
+          <div class="mb-6 p-3 rounded-2xl bg-cobalt/15 border border-cobalt/30 text-left">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-gray-300 font-medium">Pago anual acumulado:</span>
+              <span class="text-white font-extrabold text-sm">${annualTotal} <span class="text-xs font-normal text-gray-400">/ año</span></span>
+            </div>
+            <p class="text-[11px] text-cobalt-light mt-1 leading-snug">
+              * La licencia se factura de forma anual por terminal e incluye 1 año de soporte y actualizaciones.
+            </p>
           </div>
 
           <ul class="space-y-3 text-xs sm:text-sm text-gray-200">
@@ -104,14 +125,17 @@ const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/d
           </ul>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-white/5">
+        <div class="mt-8 pt-6 border-t border-white/5 space-y-2">
           <a
-            href={downloadUrl}
+            href="#contacto"
             class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-bold text-white bg-cobalt hover:bg-cobalt-hover active:scale-[0.98] transition-all shadow-md focus-visible:ring-2 focus-visible:ring-cobalt"
           >
-            <Download class="w-4 h-4" />
-            <span>Instalar y Activar Pro</span>
+            <Sparkles class="w-4 h-4" />
+            <span>Solicitar Licencia Pro</span>
           </a>
+          <p class="text-center text-[11px] text-gray-400">
+            Déjanos tus datos en el formulario y te contactaremos
+          </p>
         </div>
       </div>
 
@@ -148,9 +172,10 @@ const downloadUrl = "https://github.com/erick83/bisync-pos-web/releases/latest/d
 
         <div class="mt-8 pt-6 border-t border-white/5">
           <a
-            href="mailto:ventas@bisync.com?subject=Consulta%20Plan%20Multi-Sucursal"
+            href="#contacto"
             class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold text-gray-200 bg-white/10 hover:bg-white/15 transition-colors focus-visible:ring-2 focus-visible:ring-cobalt"
           >
+            <Mail class="w-4 h-4" />
             <span>Contactar Asesor</span>
           </a>
         </div>

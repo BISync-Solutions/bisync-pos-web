@@ -45,11 +45,10 @@
    ## 4. Reglas de Distribución de Instaladores (Releases)
  
    1. **PROHIBIDO versionar binarios pesados en Git:** No colocar archivos `.exe`, `.msi`, `.zip` ni instaladores dentro del árbol de carpetas (`public/`, `dist/`, etc.).
-   2. **Enlaces de Descarga:** Todos los botones de descarga de la web deben apuntar a la URL de GitHub Releases de este repositorio:
-      * Enlace a última versión:  
-        `https://github.com/erick83/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe`
-   3. Los instaladores se compilan en el repositorio principal privado (`simple-crm`) y se publican automáticamente como assets en los Releases de este repositorio mediante un GitHub      
-   Action.
+   2. **Enlaces de Descarga:** Todos los botones de descarga de la web se alimentan de la variable de entorno `PUBLIC_DOWNLOAD_URL` (centralizada en `src/config/download.ts`):
+      * Enlace oficial a última versión por defecto:  
+        `https://github.com/erick83/simple-crm/releases/latest/download/Bisync_POS_setup.exe`
+   3. Los instaladores se compilan en el repositorio principal (`simple-crm`) y se publican como assets en GitHub Releases.
  
    ---
  

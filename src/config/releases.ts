@@ -22,8 +22,8 @@ export interface ReleaseInfo {
 }
 
 export const GITHUB_REPO = {
-  owner: 'erick83',
-  repo: 'simple-crm',
+  owner: 'BISync-Solutions',
+  repo: 'bisync-pos-web',
 };
 
 /**

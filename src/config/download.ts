@@ -1,10 +1,10 @@
 /**
  * URL de descarga oficial del instalador de BISync POS para Windows.
  * Se obtiene prioritariamente de la variable de entorno PUBLIC_DOWNLOAD_URL.
- * Si no está definida en el entorno, utiliza la URL oficial por defecto en GitHub Releases de bisync-pos-web (público).
+ * Si no está definida en el entorno, utiliza la URL oficial de lanzamientos en GitHub Releases.
  */
 export const DEFAULT_DOWNLOAD_URL =
-  'https://github.com/BISync-Solutions/bisync-pos-web/releases/latest/download/Bisync_POS_setup.exe';
+  'https://github.com/BISync-Solutions/bisync-pos-web/releases/';
 
 export const downloadUrl: string =
   import.meta.env.PUBLIC_DOWNLOAD_URL || DEFAULT_DOWNLOAD_URL;

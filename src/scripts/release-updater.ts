@@ -9,8 +9,8 @@
  * - [data-release-link="notes"]: Enlaces a las notas de versión
  */
 
-const REPO_OWNER = 'erick83';
-const REPO_NAME = 'simple-crm';
+const REPO_OWNER = 'BISync-Solutions';
+const REPO_NAME = 'bisync-pos-web';
 const CACHE_KEY = 'bisync_latest_release';
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutos de caché para evitar rate-limits
 
@@ -91,7 +91,7 @@ export async function initReleaseSync() {
     const releasePayload: CachedRelease = {
       tagName,
       version,
-      downloadUrlExe: exeAsset?.browser_download_url || `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/latest/download/Bisync_POS_setup.exe`,
+      downloadUrlExe: exeAsset?.browser_download_url || `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/`,
       downloadUrlMsi: msiAsset?.browser_download_url || `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/download/${tagName}/Bisync.POS_${version}_x64_en-US.msi`,
       notesUrl: data.html_url || `https://github.com/${REPO_OWNER}/${REPO_NAME}/releases/tag/${tagName}`,
       timestamp: Date.now(),

@@ -46,8 +46,8 @@
  
    1. **PROHIBIDO versionar binarios pesados en Git:** No colocar archivos `.exe`, `.msi`, `.zip` ni instaladores dentro del árbol de carpetas (`public/`, `dist/`, etc.).
    2. **Enlaces de Descarga:** Todos los botones de descarga de la web se alimentan de la variable de entorno `PUBLIC_DOWNLOAD_URL` (centralizada en `src/config/download.ts`):
-      * Enlace oficial a última versión por defecto:  
-        `https://github.com/erick83/simple-crm/releases/latest/download/Bisync_POS_setup.exe`
+      * Enlace oficial por defecto:  
+        `https://github.com/BISync-Solutions/bisync-pos-web/releases/`
    3. Los instaladores se compilan en el repositorio principal (`simple-crm`) y se publican como assets en GitHub Releases.
  
    ---
